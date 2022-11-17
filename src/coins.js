@@ -22,7 +22,7 @@ function Coins() {
             <strong>
               {coin.name} ({coin.symbol}){" "}
             </strong>{" "}
-            : {coin.quotes.USD.price} (USD) / {coin.quotes.USD.price / 1340.24}{" "}
+            : {coin.quotes.USD.price} (USD) / {coin.quotes.USD.price * 1340.24}{" "}
             (KRW)
           </li>
         ))}
