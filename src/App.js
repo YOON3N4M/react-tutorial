@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import TodoList from "./TodoList";
+import Coins from "./coins";
 
 function App() {
+  const [todoHide, setTodoHide] = useState(true);
+  const [coinsHide, setCoinsHide] = useState(true);
+
+  const hideTodo = () => {
+    setTodoHide(() => !todoHide);
+  };
+  const hideCoins = () => {
+    setCoinsHide(() => !coinsHide);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <button onClick={hideTodo}>hide todo</button>
+        <button onClick={hideCoins}>hide coins</button>
+      </div>
+      <div id="todo">{todoHide ? <TodoList /> : null}</div>
+      <div id="coins">{coinsHide ? <Coins /> : null}</div>
     </div>
   );
 }
