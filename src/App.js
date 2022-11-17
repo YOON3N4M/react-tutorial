@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <div>
-        <button onClick={hideTodo}>hide todo</button>
+        <button onClick={hideTodo}>hide todo test</button>
         <button onClick={hideCoins}>hide coins</button>
       </div>
       <div id="todo">{todoHide ? <TodoList /> : null}</div>
