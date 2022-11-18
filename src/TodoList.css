@@ -1,0 +1,38 @@
+input {
+  background-color: white;
+  border-radius: 5px;
+}
+#todoTitle {
+  display: block;
+  width: 100%;
+}
+
+#todoP {
+  width: 100%;
+}
+#delBtn {
+  padding: 0px;
+  background-color: transparent;
+}
+
+#todoUl {
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#todoLi {
+  display: block;
+}
+#itemWrap {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+  margin-top: 5px;
+  border-radius: 5px;
+  min-height: 30px;
+  text-align: center;
+  padding: 10px;
+  line-height: 30px;
+  word-break: break-word;
+}

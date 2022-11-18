@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./TodoList.css";
 
 function TodoList() {
   const [toDo, setToDo] = useState("");
@@ -22,8 +23,12 @@ function TodoList() {
     console.log("hi");
   };
   return (
-    <div>
-      <h1>MY TODOS ({toDos.length})</h1>
+    <div id="todoWrap">
+      <div id="todoTitle">
+        {" "}
+        <h1>MY TODOS ({toDos.length})</h1>{" "}
+      </div>
+
       <form onSubmit={onSubmit}>
         <input
           value={toDo}
@@ -33,16 +38,23 @@ function TodoList() {
         ></input>
         <button>add toDo</button>
       </form>
-      <hr />
-      <ul>
-        {toDos.map((item, index) => (
-          <li key={index}>
-            {item}
-            <button onClick={() => delBtn(index)}>❌</button>
-          </li>
-        ))}
-      </ul>
-      <hr />
+
+      <div id="todoP">
+        <ul id="todoUl">
+          {toDos.map((item, index) => (
+            <li id="todoLi" key={index}>
+              <div id="itemWrap">
+                <span>◻</span>
+                {item}
+                <button id="delBtn" onClick={() => delBtn(index)}>
+                  ❌
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <hr></hr>
     </div>
   );
 }
