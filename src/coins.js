@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import "./coins.css";
-
 function Coins() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
   const [money, setMoney] = useState(0);
   const [disable, setDisable] = useState(false);
+
+  /*
+  ex)
+  name: bitcoin
+  symbol: btc
+  quoted.pirce.USD: 
+  */
 
   useEffect(() => {
     fetch("https://api.coinpaprika.com/v1/tickers")
@@ -15,6 +21,7 @@ function Coins() {
         setLoading(false);
       }, []);
   });
+  //const ranked9 = coins.slice(0, 8);
   const reset = () => setMoney(0);
   const onChange = (event) => {
     setMoney(() => event.target.value);
@@ -66,82 +73,87 @@ function Coins() {
       <div id="converterHead">
         <span>so i can buy....</span>
       </div>
-      <div id="converterBox">
-        <div id="tableBox">
-          <table id="convertTable">
-            <tbody>
-              <tr>
-                <td>
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-                <td>
-                  {" "}
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-                <td>
-                  {" "}
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  {" "}
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-                <td>
-                  {" "}
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-                <td>
-                  {" "}
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  {" "}
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-                <td>
-                  {" "}
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-                <td>
-                  {" "}
-                  <p>
-                    <em>갯수</em>
-                    <em>태그</em>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      {loading ? (
+        <strong>loading</strong>
+      ) : (
+        <div id="converterBox">
+          <div id="tableBox">
+            <table id="convertTable">
+              <tbody>
+                <tr>
+                  <td>
+                    <p>
+                      <em></em>
+                      <em>{coins[0].symbol}</em>
+                    </p>
+                  </td>
+                  <td>
+                    {" "}
+                    <p>
+                      <em></em>
+                      <em>{coins[1].symbol}</em>
+                    </p>
+                  </td>
+                  <td>
+                    {" "}
+                    <p>
+                      <em></em>
+                      <em>{coins[2].symbol}</em>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {" "}
+                    <p>
+                      <em></em>
+                      <em>{coins[3].symbol}</em>
+                    </p>
+                  </td>
+                  <td>
+                    {" "}
+                    <p>
+                      <em></em>
+                      <em>{coins[4].symbol}</em>
+                    </p>
+                  </td>
+                  <td>
+                    {" "}
+                    <p>
+                      <em></em>
+                      <em>{coins[5].symbol}</em>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {" "}
+                    <p>
+                      <em></em>
+                      <em>{coins[6].symbol}</em>
+                    </p>
+                  </td>
+                  <td>
+                    {" "}
+                    <p>
+                      <em></em>
+                      <em>{coins[7].symbol}</em>
+                    </p>
+                  </td>
+                  <td>
+                    {" "}
+                    <p>
+                      <em></em>
+                      <em>{coins[8].symbol}</em>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      )}
+
       <div id="coinHead">
         <h1>Coins{loading ? "" : `(${coins.length})`}</h1>
       </div>
