@@ -4,7 +4,6 @@
 hr {
   width: 100%;
   margin-top: 40px;
-  margin-bottom: 40px;
 }
 button {
   background-color: rgb(114, 114, 170);
@@ -28,6 +27,7 @@ ul {
 }
 #coins {
   display: block;
+  margin-top: 20px;
 }
 #popup {
   z-index: 3;
