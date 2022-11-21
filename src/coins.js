@@ -28,7 +28,6 @@ function Coins() {
   };
   const invert = () => {
     setDisable((prev) => !prev);
-    reset();
   };
   //
   const setEmpty = () => {
@@ -47,40 +46,38 @@ function Coins() {
 
   return (
     <div id="coins">
-      <div id="funds">
-        <label>i have </label>
-        <input
-          disabled={disable}
-          value={disable ? fixed : money}
-          onChange={onChange}
-          id="dollar"
-          placeholder="enter your money($)"
-          type="number"
-          onClick={setEmpty}
-        ></input>
-        <label> dollars</label>
-        <br />
-        <label>as KRW </label>
-        <input
-          disabled={!disable}
-          onChange={onChange}
-          value={disable ? money : money * 1300}
-          //1달러 = 1300원으로 가정
-          placeholder="enter your money(₩)"
-          id="krw"
-          type="number"
-          onClick={setEmpty}
-        ></input>
-        <label> won</label>
-        <br></br>
-        <button onClick={invert}>$ ↔ ₩</button>
-      </div>
-      <div id="converterHead">
-        <span>so i can buy....</span>
+      <div id="inputWrap">
+        <div id="leftInput">
+          {" "}
+          <input
+            disabled={disable}
+            value={disable ? fixed : money}
+            onChange={onChange}
+            id="dollar"
+            type="number"
+            onClick={setEmpty}
+          ></input>
+          <label>USD</label>
+        </div>
+        <button id="equal">=</button>
+        <div id="rightInput">
+          {" "}
+          <input
+            disabled={!disable}
+            onChange={onChange}
+            value={disable ? money : money * 1300}
+            //1달러 = 1300원으로 가정
+
+            id="krw"
+            type="number"
+            onClick={setEmpty}
+          ></input>
+          <label>KRW</label>
+        </div>
       </div>
       {
         loading ? (
-          <strong>loading</strong>
+          <strong>loading...</strong>
         ) : (
           <div id="converterBox">
             <div id="tableBox">
@@ -88,9 +85,20 @@ function Coins() {
                 <tbody>
                   <tr>
                     {ranked3.map((ranked3) => (
-                      <td>
-                        <p>
-                          <em></em>
+                      <td id="cell" key={ranked3.rank}>
+                        <div id="ea">
+                          <span>
+                            {" "}
+                            {disable
+                              ? (
+                                  money /
+                                  1330 /
+                                  ranked9.quotes.USD.price
+                                ).toFixed(8)
+                              : (money / ranked3.quotes.USD.price).toFixed(8)}
+                          </span>
+                        </div>
+                        <p id="symbol">
                           <em>{ranked3.symbol}</em>
                         </p>
                       </td>
@@ -98,9 +106,20 @@ function Coins() {
                   </tr>
                   <tr>
                     {ranked6.map((ranked6) => (
-                      <td>
-                        <p>
-                          <em></em>
+                      <td id="cell" key={ranked6.rank}>
+                        <div id="ea">
+                          <span>
+                            {" "}
+                            {disable
+                              ? (
+                                  money /
+                                  1330 /
+                                  ranked6.quotes.USD.price
+                                ).toFixed(8)
+                              : (money / ranked6.quotes.USD.price).toFixed(8)}
+                          </span>
+                        </div>
+                        <p id="symbol">
                           <em>{ranked6.symbol}</em>
                         </p>
                       </td>
@@ -108,9 +127,20 @@ function Coins() {
                   </tr>
                   <tr>
                     {ranked9.map((ranked9) => (
-                      <td>
-                        <p>
-                          <em></em>
+                      <td id="cell" key={ranked9.rank}>
+                        <div id="ea">
+                          <span>
+                            {" "}
+                            {disable
+                              ? (
+                                  money /
+                                  1330 /
+                                  ranked9.quotes.USD.price
+                                ).toFixed(8)
+                              : (money / ranked9.quotes.USD.price).toFixed(8)}
+                          </span>
+                        </div>
+                        <p id="symbol">
                           <em>{ranked9.symbol}</em>
                         </p>
                       </td>

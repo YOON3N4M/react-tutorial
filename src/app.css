@@ -53,3 +53,18 @@ ul {
   display: flex;
   flex-direction: column;
 }
+#titleName {
+  display: inline;
+}
+#logo {
+  width: 22px;
+  height: 22px;
+  display: inline;
+  animation: rotate_image 5s linear infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}

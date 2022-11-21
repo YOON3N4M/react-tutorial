@@ -1,6 +1,7 @@
 input {
   color: black;
 }
+
 #tableBox {
   margin: 0 auto;
 }
@@ -15,8 +16,65 @@ input:disabled {
   height: 150px;
   border: 1px solid white;
 }
-
+#funds {
+  margin-bottom: 30px;
+}
+#dollar,
+#krw {
+  border-radius: 0;
+  border: 0px;
+  width: 300px;
+  height: 39px;
+}
+#symbol {
+  margin-left: 5px;
+  font-weight: 100;
+}
 #convertTable > th,
 td {
   border: 1px solid gray;
+  min-width: 270px;
+  max-width: 270px;
+  min-height: 70px;
+  overflow: hidden;
+}
+
+#cell {
+  height: 55px;
+}
+#ea {
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+#symbol {
+  width: 30px;
+  display: inline;
+}
+#inputWrap {
+  display: flex;
+  justify-content: space-between;
+  width: 826px;
+  margin: 0 auto;
+  border: 1px;
+  border-color: white;
+  border-style: solid;
+}
+#leftInput,
+#rightInput {
+  width: 400px;
+  height: 40px;
+  line-height: 40px;
+}
+#leftInput {
+  text-align: right;
+}
+#rightInput {
+  text-align: left;
+}
+
+#equal {
+  line-height: 40px;
 }
