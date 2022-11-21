@@ -21,7 +21,7 @@ function Coins() {
         setLoading(false);
       }, []);
   });
-  //const ranked9 = coins.slice(0, 8);
+
   const reset = () => setMoney(0);
   const onChange = (event) => {
     setMoney(() => event.target.value);
@@ -37,8 +37,13 @@ function Coins() {
     }
   };
 
+  //달러 소수점 정리
   const demical = money / 1300;
-  const fixed = demical.toFixed(2);
+  const fixed = demical.toFixed(2); // 소수점 제거한 달러
+
+  const ranked3 = coins.slice(0, 3); // 코인 랭킹 1~3까지의 배열
+  const ranked6 = coins.slice(3, 6); // 코인 랭킹 4~6까지의 배열
+  const ranked9 = coins.slice(6, 9); // 코인 랭킹 7~9까지의 배열
 
   return (
     <div id="coins">
@@ -73,10 +78,51 @@ function Coins() {
       <div id="converterHead">
         <span>so i can buy....</span>
       </div>
-      {loading ? (
-        <strong>loading</strong>
-      ) : (
-        <div id="converterBox">
+      {
+        loading ? (
+          <strong>loading</strong>
+        ) : (
+          <div id="converterBox">
+            <div id="tableBox">
+              <table id="convertTable">
+                <tbody>
+                  <tr>
+                    {ranked3.map((ranked3) => (
+                      <td>
+                        <p>
+                          <em></em>
+                          <em>{ranked3.symbol}</em>
+                        </p>
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    {ranked6.map((ranked6) => (
+                      <td>
+                        <p>
+                          <em></em>
+                          <em>{ranked6.symbol}</em>
+                        </p>
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    {ranked9.map((ranked9) => (
+                      <td>
+                        <p>
+                          <em></em>
+                          <em>{ranked9.symbol}</em>
+                        </p>
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )
+        // 아래는 map()을 안쓰고 그냥 일일히 넣은 방식임
+        /* <div id="converterBox">
           <div id="tableBox">
             <table id="convertTable">
               <tbody>
@@ -151,8 +197,8 @@ function Coins() {
               </tbody>
             </table>
           </div>
-        </div>
-      )}
+        </div> */
+      }
 
       <div id="coinHead">
         <h1>Coins{loading ? "" : `(${coins.length})`}</h1>
