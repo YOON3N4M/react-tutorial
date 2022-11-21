@@ -5,6 +5,7 @@ function Coins() {
   const [coins, setCoins] = useState([]);
   const [money, setMoney] = useState(0);
   const [disable, setDisable] = useState(false);
+  const [currency, setCurrency] = useState(true);
 
   /*
   ex)
@@ -22,13 +23,10 @@ function Coins() {
       }, []);
   });
 
-  const reset = () => setMoney(0);
   const onChange = (event) => {
     setMoney(() => event.target.value);
   };
-  const invert = () => {
-    setDisable((prev) => !prev);
-  };
+
   //
   const setEmpty = () => {
     if (money === 0) {
@@ -36,9 +34,14 @@ function Coins() {
     }
   };
 
+  const clickBtn = () => {
+    setCurrency((prev) => !prev);
+    setMoney(0);
+  };
+
   //달러 소수점 정리
   const demical = money / 1300;
-  const fixed = demical.toFixed(2); // 소수점 제거한 달러
+  const fixed = demical.toFixed(2);
 
   const ranked3 = coins.slice(0, 3); // 코인 랭킹 1~3까지의 배열
   const ranked6 = coins.slice(3, 6); // 코인 랭킹 4~6까지의 배열
@@ -46,35 +49,37 @@ function Coins() {
 
   return (
     <div id="coins">
-      <div id="inputWrap">
-        <div id="leftInput">
-          {" "}
-          <input
-            disabled={disable}
-            value={disable ? fixed : money}
-            onChange={onChange}
-            id="dollar"
-            type="number"
-            onClick={setEmpty}
-          ></input>
-          <label>USD</label>
-        </div>
-        <button id="equal">=</button>
-        <div id="rightInput">
-          {" "}
-          <input
-            disabled={!disable}
-            onChange={onChange}
-            value={disable ? money : money * 1300}
-            //1달러 = 1300원으로 가정
+      {loading ? null : (
+        <div id="inputWrap">
+          <div id="leftInput">
+            {" "}
+            <input
+              onChange={onChange}
+              id="dollar"
+              type="number"
+              onClick={setEmpty}
+            ></input>
+            <span>{currency ? "USD" : "KRW"}</span>
+          </div>
+          <div id="equalBox">
+            <button id="equal">=</button>
+          </div>
+          <div id="rightInput">
+            {" "}
+            <input
+              disabled="true"
+              onChange={onChange}
+              value={currency ? money * 1300 : fixed}
+              //1달러 = 1300원으로 가정
 
-            id="krw"
-            type="number"
-            onClick={setEmpty}
-          ></input>
-          <label>KRW</label>
+              id="krw"
+              type="number"
+              onClick={setEmpty}
+            ></input>
+            <span>{currency ? "KRW" : "USD"}</span>
+          </div>
         </div>
-      </div>
+      )}
       {
         loading ? (
           <strong>loading...</strong>
@@ -86,63 +91,69 @@ function Coins() {
                   <tr>
                     {ranked3.map((ranked3) => (
                       <td id="cell" key={ranked3.rank}>
-                        <div id="ea">
-                          <span>
-                            {" "}
-                            {disable
-                              ? (
-                                  money /
-                                  1330 /
-                                  ranked9.quotes.USD.price
-                                ).toFixed(8)
-                              : (money / ranked3.quotes.USD.price).toFixed(8)}
-                          </span>
+                        <div id="cellWrap">
+                          <div id="ea">
+                            <span>
+                              {" "}
+                              {currency
+                                ? (money / ranked3.quotes.USD.price).toFixed(8)
+                                : (
+                                    money /
+                                    1330 /
+                                    ranked3.quotes.USD.price
+                                  ).toFixed(8)}
+                            </span>
+                          </div>
+                          <div id="symbol">
+                            <span>{ranked3.symbol}</span>
+                          </div>
                         </div>
-                        <p id="symbol">
-                          <em>{ranked3.symbol}</em>
-                        </p>
                       </td>
                     ))}
                   </tr>
                   <tr>
                     {ranked6.map((ranked6) => (
                       <td id="cell" key={ranked6.rank}>
-                        <div id="ea">
-                          <span>
-                            {" "}
-                            {disable
-                              ? (
-                                  money /
-                                  1330 /
-                                  ranked6.quotes.USD.price
-                                ).toFixed(8)
-                              : (money / ranked6.quotes.USD.price).toFixed(8)}
-                          </span>
+                        <div id="cellWrap">
+                          <div id="ea">
+                            <span>
+                              {" "}
+                              {currency
+                                ? (money / ranked6.quotes.USD.price).toFixed(8)
+                                : (
+                                    money /
+                                    1330 /
+                                    ranked6.quotes.USD.price
+                                  ).toFixed(8)}
+                            </span>
+                          </div>
+                          <div id="symbol">
+                            <span>{ranked6.symbol}</span>
+                          </div>
                         </div>
-                        <p id="symbol">
-                          <em>{ranked6.symbol}</em>
-                        </p>
                       </td>
                     ))}
                   </tr>
                   <tr>
                     {ranked9.map((ranked9) => (
                       <td id="cell" key={ranked9.rank}>
-                        <div id="ea">
-                          <span>
-                            {" "}
-                            {disable
-                              ? (
-                                  money /
-                                  1330 /
-                                  ranked9.quotes.USD.price
-                                ).toFixed(8)
-                              : (money / ranked9.quotes.USD.price).toFixed(8)}
-                          </span>
+                        <div id="cellWrap">
+                          <div id="ea">
+                            <span>
+                              {" "}
+                              {currency
+                                ? (money / ranked9.quotes.USD.price).toFixed(8)
+                                : (
+                                    money /
+                                    1330 /
+                                    ranked9.quotes.USD.price
+                                  ).toFixed(8)}
+                            </span>
+                          </div>
+                          <div id="symbol">
+                            <span>{ranked9.symbol}</span>
+                          </div>
                         </div>
-                        <p id="symbol">
-                          <em>{ranked9.symbol}</em>
-                        </p>
                       </td>
                     ))}
                   </tr>
