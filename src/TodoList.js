@@ -36,7 +36,7 @@ function TodoList() {
           type="text"
           placeholder="write your today to do"
         ></input>
-        <button>add toDo</button>
+        <button className="appBtn">add toDo</button>
       </form>
 
       <div id="todoP">
@@ -46,7 +46,13 @@ function TodoList() {
               <div id="itemWrap">
                 <span>◻</span>
                 {item}
-                <button id="delBtn" onClick={() => delBtn(index)}>
+                <button
+                  style={{
+                    border: 0,
+                  }}
+                  id="delBtn"
+                  onClick={() => delBtn(index)}
+                >
                   ❌
                 </button>
               </div>

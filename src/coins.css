@@ -19,8 +19,8 @@ input:disabled {
 #funds {
   margin-bottom: 30px;
 }
-#dollar,
-#krw {
+#leftInput,
+#rightInput {
   border-radius: 0;
   border: 0px;
   width: 300px;
@@ -70,11 +70,12 @@ td {
   border-color: white;
   border-style: solid;
 }
-#leftInput,
-#rightInput {
+#leftInputBox,
+#rightInputBox {
   width: 400px;
   height: 40px;
   line-height: 40px;
+  background-color: transparent;
 }
 #leftInput {
   text-align: right;
@@ -93,5 +94,7 @@ td {
 #equal {
   margin: auto;
   display: block;
-  background-color: transparent; /*배경색 투명*/
+  border: 0px;
+  border-radius: 0;
+  background-color: rgb(82, 93, 137); /*배경색 투명*/
 }

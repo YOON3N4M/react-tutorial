@@ -33,14 +33,16 @@ function App() {
         </h1>
       </div>
       <div id="topBar">
-        <button onClick={hideTodo}>
+        <button className="appBtn" onClick={hideTodo}>
           {todoHide ? "hide todo" : "show todo"}
         </button>
-        <button onClick={hideCoins}>
+        <button className="appBtn" onClick={hideCoins}>
           {coinsHide ? "hide coins" : "show coins"}
         </button>
-        <button onClick={hidePop}>{popHide ? "hide pop" : "show pop"}</button>
-        <button onClick={hideMovie}>
+        <button className="appBtn" onClick={hidePop}>
+          {popHide ? "hide pop" : "show pop"}
+        </button>
+        <button className="appBtn" onClick={hideMovie}>
           {movieHide ? "hide movie" : "show movie"}
         </button>
       </div>

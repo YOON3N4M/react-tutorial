@@ -4,7 +4,6 @@ function Coins() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
   const [money, setMoney] = useState(0);
-  const [disable, setDisable] = useState(false);
   const [currency, setCurrency] = useState(true);
 
   /*
@@ -50,11 +49,11 @@ function Coins() {
     <div id="coins">
       {loading ? null : (
         <div id="inputWrap">
-          <div id="leftInput">
+          <div id="leftInputBox">
             {" "}
             <input
               onChange={onChange}
-              id="dollar"
+              id="leftInput"
               type="number"
               onClick={setEmpty}
             ></input>
@@ -62,20 +61,18 @@ function Coins() {
           </div>
           <div id="equalBox">
             <button onClick={clickBtn} id="equal">
-              =
+              ↔
             </button>
           </div>
-          <div id="rightInput">
+          <div id="rightInputBox">
             {" "}
             <input
               disabled="true"
               onChange={onChange}
               value={currency ? money * 1300 : fixed}
               //1달러 = 1300원으로 가정
-
-              id="krw"
+              id="rightInput"
               type="number"
-              onClick={setEmpty}
             ></input>
             <span>{currency ? "KRW" : "USD"}</span>
           </div>

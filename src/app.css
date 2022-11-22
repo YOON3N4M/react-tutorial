@@ -5,7 +5,7 @@ hr {
   width: 100%;
   margin-top: 40px;
 }
-button {
+.appBtn {
   background-color: rgb(114, 114, 170);
   border-radius: 5px;
   border: 0px;
