@@ -36,7 +36,6 @@ function Coins() {
 
   const clickBtn = () => {
     setCurrency((prev) => !prev);
-    setMoney(0);
   };
 
   //달러 소수점 정리
@@ -62,7 +61,9 @@ function Coins() {
             <span>{currency ? "USD" : "KRW"}</span>
           </div>
           <div id="equalBox">
-            <button id="equal">=</button>
+            <button onClick={clickBtn} id="equal">
+              =
+            </button>
           </div>
           <div id="rightInput">
             {" "}
