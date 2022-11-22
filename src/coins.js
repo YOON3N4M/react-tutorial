@@ -57,7 +57,7 @@ function Coins() {
               type="number"
               onClick={setEmpty}
             ></input>
-            <span>{currency ? "USD" : "KRW"}</span>
+            <span className="unit">{currency ? "USD" : "KRW"}</span>
           </div>
           <div id="equalBox">
             <button onClick={clickBtn} id="equal">
@@ -66,15 +66,8 @@ function Coins() {
           </div>
           <div id="rightInputBox">
             {" "}
-            <input
-              disabled="true"
-              onChange={onChange}
-              value={currency ? money * 1300 : fixed}
-              //1달러 = 1300원으로 가정
-              id="rightInput"
-              type="number"
-            ></input>
-            <span>{currency ? "KRW" : "USD"}</span>
+            <span className="unit">{currency ? money * 1300 : fixed}</span>
+            <span className="unit">{currency ? "KRW" : "USD"}</span>
           </div>
         </div>
       )}

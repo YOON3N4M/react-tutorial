@@ -24,7 +24,14 @@ input:disabled {
   border-radius: 0;
   border: 0px;
   width: 300px;
-  height: 39px;
+  height: 35px;
+  background-color: transparent;
+  color: white;
+  font-size: 17px;
+}
+.unit {
+  margin-left: 5px;
+  width: 40px;
 }
 #symbol {
   margin-left: 5px;
