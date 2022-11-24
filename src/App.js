@@ -4,6 +4,7 @@ import Coins from "./coins";
 import "./app.css";
 import Popup from "./Popup";
 import logo from "./logo.svg.png";
+import Movie from "./Movie";
 
 function App() {
   const [todoHide, setTodoHide] = useState(false);
@@ -52,7 +53,7 @@ function App() {
       </div>
       <div id="coins">{coinsHide ? <Coins /> : null}</div>
       <div id="popup">{popHide ? <Popup /> : null}</div>
-      <div></div>
+      <div id="movie">{movieHide ? <Movie /> : null}</div>
     </div>
   );
 }
