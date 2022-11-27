@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Popup.css";
+import "../css/Popup.css";
 
 function Popup() {
   const [hidepop, setHidepop] = useState(true);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./coins.css";
+import "../css/Coins.css";
 function Coins() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
