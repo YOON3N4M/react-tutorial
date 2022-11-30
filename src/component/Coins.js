@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/Coins.css";
+import Loading from "../component/Loading";
 function Coins() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
@@ -73,7 +74,7 @@ function Coins() {
       )}
       {
         loading ? (
-          <strong>loading...</strong>
+          <Loading />
         ) : (
           <div id="converterBox">
             <div id="tableBox">
@@ -236,9 +237,7 @@ function Coins() {
         <h1>Coins{loading ? "" : `(${coins.length})`}</h1>
       </div>
       <div id="coinList">
-        {loading ? (
-          <strong>loading...</strong>
-        ) : (
+        {loading ? null : (
           <select style={{ backgroundColor: "#333651" }}>
             <option>choose coin</option>
             {coins.map((coin) => (

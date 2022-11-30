@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 
 function GetMovie({ id, coverImg, title, summary, genres }) {
   return (
-    <div>
-      <img src={coverImg} alt={title} />
-      <h2>
+    <div className="movieBox">
+      <Link to={`/movies/${id}`}>
+        <img className="movieCover" src={coverImg} alt={title} />
+      </Link>
+      {/*<h2>
         <Link to={`/movies/${id}`}>{title}</Link>
       </h2>
       <p>{summary}</p>
@@ -13,6 +15,7 @@ function GetMovie({ id, coverImg, title, summary, genres }) {
           <li key={g}>{g}</li>
         ))}
       </ul>
+        */}
     </div>
   );
 }
