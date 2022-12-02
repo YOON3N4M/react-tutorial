@@ -41,7 +41,7 @@ function Home() {
           {popHide ? "hide pop" : "show pop"}
         </button>
         <button className="appBtn">
-          <Link to="movies">movies info</Link>
+          <Link to="/movies">movies info</Link>
         </button>
       </div>
 

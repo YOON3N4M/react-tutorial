@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 function GetMovie({ id, coverImg, title, summary, genres }) {
   return (
     <div className="movieBox">
-      <Link to={`/movies/${id}`}>
-        <img className="movieCover" src={coverImg} alt={title} />
+      <Link to={`${id}`}>
+        <img className="movie" src={coverImg} alt={title} />
       </Link>
       {/*<h2>
         <Link to={`/movies/${id}`}>{title}</Link>

@@ -9,12 +9,12 @@ import Movie from "./routes/Movie";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: `${process.env.PUBLIC_URL}`,
     element: <App />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "movies",
+    path: `${process.env.PUBLIC_URL}/movies`,
     element: <Movie />,
   },
   {
