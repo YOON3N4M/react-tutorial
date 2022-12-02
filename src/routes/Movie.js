@@ -25,9 +25,10 @@ function Movie() {
       ) : (
         <div>
           <div className="movieHeader">
-            <span>Back</span>
+            {/* <span>Back</span>
             <span>Movie List</span>
-            <span>sort by</span>
+              <span>sort by</span>
+      */}
           </div>
           <div className="movieWrap">
             {movies.map((movie) => (

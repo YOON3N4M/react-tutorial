@@ -44,8 +44,9 @@ function Details() {
           <Loading />
         ) : (
           <div className="movieInfoWrap">
-            <div>nav</div>
-
+            {/*
+              <div>nav</div>
+        */}
             <div className="backImg" style={style}></div>
             <div className="main-content">
               <div className="row">
