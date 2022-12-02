@@ -17,25 +17,106 @@
 }
 */
 .movieInfoWrap {
-  height: 3000px;
+  height: 100vh;
+  position: relative;
 }
 
 .backImg {
-  background-size: cover;
   width: 100vw;
-  opacity: 30%;
-  height: 900px;
+  height: 100vh;
   z-index: -6;
-  background-repeat: no-repeat;
-
   mask-image: linear-gradient(
-    to top,
+    to left,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.65) 10%
+    rgba(0, 0, 0, 0.65) 50%
   );
   -webkit-mask-image: linear-gradient(
-    to top,
+    to left,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.65) 10%
+    rgba(0, 0, 0, 0.65) 50%
   );
+  opacity: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+.main-content {
+  width: 1200px;
+  height: 100vh;
+  position: absolute;
+  top: 42px;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.row {
+  height: 400px;
+  display: flex;
+}
+.poster-wrap {
+  width: 270px;
+  height: 400px;
+}
+.movie-text-wrap {
+  width: 930px;
+  height: 400px;
+  text-align: left;
+}
+.movie-text-wrap > h1,
+h2,
+p {
+  text-align: left;
+}
+.genres {
+  margin-right: 5px;
 }

@@ -29,7 +29,7 @@ function Details() {
         setMovieInfo(json);
         setLoading(false);
         setBackgroundCover(movieInfo.data.movie.background_image);
-        //console.log(movieInfo.data.movie);
+        console.log(movieInfo.data.movie);
       }, []);
   });
 
@@ -48,7 +48,23 @@ function Details() {
 
             <div className="backImg" style={style}></div>
             <div className="main-content">
-              <h1>hi</h1>
+              <div className="row">
+                <div className="poster-wrap">
+                  <img
+                    src={movieInfo.data.movie.medium_cover_image}
+                    alt="loading.."
+                  />
+                </div>
+                <div className="movie-text-wrap">
+                  <h1>{movieInfo.data.movie.title}</h1>
+                  <h2>{movieInfo.data.movie.year}</h2>
+
+                  {movieInfo.data.movie.genres.map((g) => (
+                    <span className="genres">{g}</span>
+                  ))}
+                  <p>{movieInfo.data.movie.description_full}</p>
+                </div>
+              </div>
             </div>
           </div>
         )
