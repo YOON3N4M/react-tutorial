@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: `${process.env.PUBLIC_URL}/movies`,
+    path: "/movies",
     element: <Movie />,
   },
   {
