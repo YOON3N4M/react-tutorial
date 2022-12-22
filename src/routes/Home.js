@@ -37,9 +37,6 @@ function Home() {
         <button className="appBtn" onClick={hideCoins}>
           {coinsHide ? "hide coins" : "show coins"}
         </button>
-        <button className="appBtn" onClick={hidePop}>
-          {popHide ? "hide pop" : "show pop"}
-        </button>
         <button className="appBtn">
           <Link to="/movies">movies info</Link>
         </button>
@@ -49,7 +46,6 @@ function Home() {
         <div id="todo">{todoHide ? <TodoList /> : null}</div>
       </div>
       <div id="coins">{coinsHide ? <Coins /> : null}</div>
-      <div id="popup">{popHide ? <Popup /> : null}</div>
     </div>
   );
 }

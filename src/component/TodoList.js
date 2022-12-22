@@ -4,6 +4,11 @@ import "../css/TodoList.css";
 function TodoList() {
   const [toDo, setToDo] = useState("");
   const [toDos, setToDos] = useState([]);
+  const TODOS_KEY = "todos";
+
+  function saveToDos() {
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+  }
   const onChange = (event) => {
     setToDo(event.target.value);
   };
@@ -12,6 +17,7 @@ function TodoList() {
     if (toDo === "") {
       return;
     }
+
     setToDos((currentArray) => [...currentArray, toDo]);
     setToDo("");
   };

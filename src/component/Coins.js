@@ -234,7 +234,7 @@ function Coins() {
       }
 
       <div id="coinHead">
-        <h1>Coins{loading ? "" : `(${coins.length})`}</h1>
+        {loading ? "" : <h1>Coins`(${coins.length})`</h1>}
       </div>
       <div id="coinList">
         {loading ? null : (
